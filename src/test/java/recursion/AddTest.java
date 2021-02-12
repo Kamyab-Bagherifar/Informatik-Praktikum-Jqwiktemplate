@@ -9,6 +9,6 @@ class AddTest {
 
   @Property
   boolean testAdd(@ForAll int a, @ForAll @IntRange(min=1,max=10) int b) {
-    return add(a, b) == a +b;
+    return add(a,b) == a+b;
   }
 }

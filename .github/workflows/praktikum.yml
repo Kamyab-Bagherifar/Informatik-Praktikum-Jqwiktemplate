@@ -62,3 +62,15 @@ jobs:
       - run: mvn compile
       - run: mvn -Dtest=recursion.BinomTest test
 
+  fib:
+    name: FibTest
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '10'
+      - run: mvn compile
+      - run: mvn -Dtest=recursion.FibTest test
+
