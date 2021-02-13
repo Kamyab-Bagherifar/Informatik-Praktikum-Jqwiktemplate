@@ -29,6 +29,7 @@ jobs:
 
   ggt:
     name: GgtTest
+    needs: binom
     runs-on: ubuntu-latest
     timeout-minutes: 1
     steps:
@@ -41,6 +42,7 @@ jobs:
 
   fib:
     name: FibTest
+    needs: ggt
     runs-on: ubuntu-latest
     timeout-minutes: 1
     steps:
