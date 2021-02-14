@@ -9,12 +9,12 @@ build-job:
 test-job1:
   stage: test
   script:
-    - mvn -Dtest=recursion.FactTest test
+    - mvn -Dtest=recursion.AddTest test
 
 test-job2:
   stage: test
   script:
-    - mvn -Dtest=recursion.BinomTest test
+    - mvn -Dtest=recursion.CollatzTest test
 
 deploy-prod:
   stage: deploy
