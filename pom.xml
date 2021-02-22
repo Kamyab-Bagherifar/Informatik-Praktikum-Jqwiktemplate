@@ -45,6 +45,18 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <properties>
+                        <configurationParameters>
+                            jqwik.tries.default = 100
+                        </configurationParameters>
+                    </properties>
+                    <includes>
+                        <include>**/*Tests.java</include>
+                        <include>**/*Examples.java</include>
+                        <include>**/*Properties.java</include>
+                    </includes>
+                </configuration>
             </plugin>
        </plugins>
 
