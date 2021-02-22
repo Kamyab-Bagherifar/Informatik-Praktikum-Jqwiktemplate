@@ -12,10 +12,12 @@ Add:
     - mvn -Dtest=recursion.AddTest test
   artifacts:
     when: always
+    paths:
+      - target/surefire-reports/TEST-*.xml
     reports:
       junit:
         - target/surefire-reports/TEST-*.xml
-        - target/failsafe-reports/TEST-*.xml
+     #   - target/failsafe-reports/TEST-*.xml
 
 Collatz:
   stage: test
@@ -33,10 +35,12 @@ Report:
     - mvn verify
   artifacts:
     when: always
+    paths:
+      - target/surefire-reports/TEST-*.xml
     reports:
       junit:
         - target/surefire-reports/TEST-*.xml
-        - target/failsafe-reports/TEST-*.xml
+    #    - target/failsafe-reports/TEST-*.xml
 
 
 deploy-prod:
