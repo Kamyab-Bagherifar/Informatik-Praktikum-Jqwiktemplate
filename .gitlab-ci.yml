@@ -17,7 +17,6 @@ Add:
         - target/surefire-reports/TEST-*.xml
         - target/failsafe-reports/TEST-*.xml
 
-
 Collatz:
   stage: test
   script:
