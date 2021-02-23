@@ -32,7 +32,9 @@ Fact:
 Report:
   stage: test
   script:
-    - mvn test
+    - mvn -Dtest=recursion.AddTest test
+    - mvn -Dtest=recursion.CollatzTest test
+    - mvn -Dtest=recursion.FactTest test
   artifacts:
     when: always
     paths:
