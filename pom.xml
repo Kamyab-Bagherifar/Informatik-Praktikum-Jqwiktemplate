@@ -49,7 +49,7 @@
                     <properties>
                         <configurationParameters>
                             jqwik.tries.default = 100
-                            jqwik.reporting.usejunitplatform = true
+                            jqwik.reporting.usejunitplatform = false
                         </configurationParameters>
                     </properties>
                     <includes>

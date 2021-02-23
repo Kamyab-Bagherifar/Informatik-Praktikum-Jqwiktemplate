@@ -1,23 +1,22 @@
 image: maven:latest
 
+cache:
+  paths:
+    - maven.repository/
+
+variables:
+  MAVEN_OPTS: "--batch-mode -Dmaven.repo.local=maven.repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN"
+
+
 build-job:
   stage: build
   script:
-    - echo "Hello, $GITLAB_USER_LOGIN!"
     - mvn compile
 
 Add:
   stage: test
   script:
     - mvn -Dtest=recursion.AddTest test
-  artifacts:
-    when: always
-    paths:
-      - target/surefire-reports/TEST-AddTest.xml
-    reports:
-      junit:
-        - target/surefire-reports/TEST-AddTest.xml
-     #   - target/failsafe-reports/TEST-*.xml
 
 Collatz:
   stage: test
