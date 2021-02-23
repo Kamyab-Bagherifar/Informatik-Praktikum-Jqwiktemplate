@@ -14,7 +14,7 @@ variables:
 build-job:
   stage: build
   script:
-    - mvn compile
+    - mvn $MAVEN_CLI_OPTS compile
 
 Add:
   stage: test
