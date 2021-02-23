@@ -2,8 +2,10 @@ image: maven:latest
 
 cache:
   paths:
-   # - maven.repository/
+  # - maven.repository/
     - ./.m2/repository/
+  # keep cache across branch
+  key: "$CI_BUILD_REF_NAME"
 
 
 variables:
@@ -15,11 +17,19 @@ build-job:
   stage: build
   script:
     - mvn $MAVEN_CLI_OPTS compile
+  artifacts:
+    paths:
+      - target/
 
 Add:
   stage: test
+  dependencies:
+    - build-job
   script:
     - mvn -Dtest=recursion.AddTest test
+  artifacts:
+    paths:
+      - target/
 
 Collatz:
   stage: test
