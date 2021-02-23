@@ -1,39 +1,24 @@
 image: maven:latest
 
-cache:
-  paths:
-  # - maven.repository/
-  #  - ./.m2/repository/
-    - .m2/repository
-
-
-  # keep cache across branch
-  key: "$CI_BUILD_REF_NAME"
-
-
 variables:
-#  MAVEN_OPTS: "--batch-mode -Dmaven.repo.local=maven.repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN"
-  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
-
+  #  MAVEN_OPTS: "--batch-mode -Dmaven.repo.local=maven.repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN"
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
   MAVEN_CLI_OPTS: "--batch-mode"
 
-build-job:
+cache:
+  paths:
+    - .m2/repository/
+    - target/
+
+Build:
   stage: build
   script:
     - mvn $MAVEN_CLI_OPTS compile
-  artifacts:
-    paths:
-      - target/
 
 Add:
   stage: test
-  dependencies:
-    - build-job
   script:
     - mvn -Dtest=recursion.AddTest test
-  artifacts:
-    paths:
-      - target/
 
 Collatz:
   stage: test
