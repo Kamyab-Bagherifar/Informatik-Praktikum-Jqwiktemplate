@@ -29,12 +29,10 @@ Fact:
   script:
     - mvn -Dtest=recursion.FactTest test
 
-Report:
+All:
   stage: test
   script:
-    - mvn -Dtest=recursion.AddTest test
-    - mvn -Dtest=recursion.CollatzTest test
-    - mvn -Dtest=recursion.FactTest test
+    - mvn test
   artifacts:
     when: always
     paths:

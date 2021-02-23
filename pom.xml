@@ -49,10 +49,11 @@
                     <properties>
                         <configurationParameters>
                             jqwik.tries.default = 100
-                            jqwik.reporting.usejunitplatform = false
+                            jqwik.reporting.usejunitplatform = true
                         </configurationParameters>
                     </properties>
                     <includes>
+                        <include>**/*Test.java</include>
                         <include>**/*Tests.java</include>
                         <include>**/*Examples.java</include>
                         <include>**/*Properties.java</include>
