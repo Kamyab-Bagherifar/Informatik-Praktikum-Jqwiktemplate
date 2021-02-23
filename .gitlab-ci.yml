@@ -32,7 +32,7 @@ Fact:
 Report:
   stage: test
   script:
-    - mvn verify
+    - mvn test
   artifacts:
     when: always
     paths:
