@@ -3,7 +3,9 @@ image: maven:latest
 cache:
   paths:
   # - maven.repository/
-    - ./.m2/repository/
+  #  - ./.m2/repository/
+    - ./.m2/repository
+
   # keep cache across branch
   key: "$CI_BUILD_REF_NAME"
 
