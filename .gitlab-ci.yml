@@ -1,7 +1,6 @@
 image: maven:latest
-
+#inspired by https://gitlab.com/gitlab-examples/maven/simple-maven-example
 variables:
-  #  MAVEN_OPTS: "--batch-mode -Dmaven.repo.local=maven.repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN"
   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
   MAVEN_CLI_OPTS: "--batch-mode"
 
@@ -29,6 +28,21 @@ Fact:
   stage: test
   script:
     - mvn -Dtest=recursion.FactTest test
+
+Binom:
+  stage: test
+  script:
+    - mvn -Dtest=recursion.BinomTest test
+
+ggT:
+  stage: test
+  script:
+    - mvn -Dtest=recursion.GgTest test
+
+Fib:
+  stage: test
+  script:
+    - mvn -Dtest=recursion.FibTest test
 
 
 deploy-prod:
