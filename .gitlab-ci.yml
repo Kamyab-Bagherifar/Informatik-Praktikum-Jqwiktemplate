@@ -2,10 +2,13 @@ image: maven:latest
 
 cache:
   paths:
-    - maven.repository/
+   # - maven.repository/
+    - ./.m2/repository/
+
 
 variables:
 #  MAVEN_OPTS: "--batch-mode -Dmaven.repo.local=maven.repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN"
+  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
 
 
 build-job:
