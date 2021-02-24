@@ -12,7 +12,6 @@
         <junit-jupiter.version>5.7.1</junit-jupiter.version>
         <jqwik.version>1.5.0</jqwik.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
-        <maven-surefire-report-plugin.version>2.22.2</maven-surefire-report-plugin.version>
 
         <java.version>1.8</java.version>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -63,15 +62,5 @@
        </plugins>
 
     </build>
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-report-plugin</artifactId>
-                <version>${maven-surefire-report-plugin.version}</version>
-            </plugin>
-        </plugins>
-    </reporting>
-
 
 </project>
