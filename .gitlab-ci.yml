@@ -1,4 +1,5 @@
-image: maven:latest
+image: java:latest
+#image: maven:latest
 #inspired by https://gitlab.com/gitlab-examples/maven/simple-maven-example
 variables:
   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
@@ -9,6 +10,9 @@ cache:
     - .m2/repository/
     - target/
 
+include:
+  - template: Code-Quality.gitlab-ci.yml
+
 Build:
   stage: build
   script:
@@ -16,6 +20,10 @@ Build:
   artifacts:
     paths:
       - target/
+
+code_quality:
+  artifacts:
+    paths: [gl-code-quality-report.json]
 
 Add:
   stage: test
@@ -47,8 +55,6 @@ Fib:
   script:
     - mvn -Dtest=recursion.FibTest test
 
-include:
-  - template: Code-Quality.gitlab-ci.yml
 
 deploy-prod:
   stage: deploy
