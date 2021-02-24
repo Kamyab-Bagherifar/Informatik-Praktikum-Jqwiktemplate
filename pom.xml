@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>inf2</groupId>
-    <artifactId>jqwik</artifactId>
+    <artifactId>testen-mit-jqwik</artifactId>
     <version>0.0.0</version>
 
     <properties>
         <junit-jupiter.version>5.7.1</junit-jupiter.version>
         <jqwik.version>1.5.0</jqwik.version>
-        <maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-surefire-report-plugin.version>2.22.2</maven-surefire-report-plugin.version>
 
         <java.version>1.8</java.version>
