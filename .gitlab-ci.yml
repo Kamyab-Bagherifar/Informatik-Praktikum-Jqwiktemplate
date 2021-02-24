@@ -44,6 +44,8 @@ Fib:
   script:
     - mvn -Dtest=recursion.FibTest test
 
+include:
+  - template: Code-Quality.gitlab-ci.yml
 
 deploy-prod:
   stage: deploy
