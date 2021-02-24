@@ -14,7 +14,8 @@ Build:
   script:
     - mvn $MAVEN_CLI_OPTS compile
   artifacts:
-    - target/
+    paths:
+      - target/
 
 Add:
   stage: test
