@@ -13,6 +13,8 @@ Build:
   stage: build
   script:
     - mvn $MAVEN_CLI_OPTS compile
+  artifacts:
+    - target/
 
 Add:
   stage: test
