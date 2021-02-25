@@ -20,6 +20,7 @@ include:
   - template: Code-Quality.gitlab-ci.yml
 
 code_quality:
+  cache: {}
   rules:
     - if: '$CODE_QUALITY_DISABLED'
       when: never
