@@ -1,5 +1,4 @@
-image: java:latest
-#image: maven:latest
+image: maven:latest
 #inspired by https://gitlab.com/gitlab-examples/maven/simple-maven-example
 variables:
   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
@@ -17,13 +16,6 @@ Build:
   stage: build
   script:
     - mvn $MAVEN_CLI_OPTS compile
-  artifacts:
-    paths:
-      - target/
-
-code_quality:
-  artifacts:
-    paths: [gl-code-quality-report.json]
 
 Add:
   stage: test
