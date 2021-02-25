@@ -9,6 +9,8 @@ cache:
     - .m2/repository/
     - target/
 
+
+
 include:
   - template: Code-Quality.gitlab-ci.yml
 
@@ -16,6 +18,11 @@ Build:
   stage: build
   script:
     - mvn $MAVEN_CLI_OPTS compile
+
+code_quality:
+  artifacts:
+    paths: ['gl-code-quality-report.json']
+
 
 Add:
   stage: test
