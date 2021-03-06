@@ -53,7 +53,7 @@ Binom:
 ggT:
   stage: test
   script:
-    - mvn -Dtest=recursion.GgTest test
+    - mvn -Dtest=recursion.GgtTest test
 
 Fib:
   stage: test
