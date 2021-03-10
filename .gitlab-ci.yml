@@ -10,7 +10,6 @@ cache:
     - target/
 
 
-
 Build:
   stage: build
   script:
