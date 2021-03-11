@@ -14,7 +14,7 @@ public class Methods {
   }
 
   static int bad(int a, int b, int c, int d, int e, int f, int g){
-    return 0;
+    return 1;
   }
 
 }
