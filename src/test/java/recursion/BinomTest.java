@@ -5,15 +5,13 @@ import net.jqwik.api.*;
 import static recursion.Methods.binomialkoeffizient;
 
 import net.jqwik.api.constraints.IntRange;
-import org.assertj.core.api.Assertions;
 
-import static org.assertj.core.api.Assertions.*;
 
 public class BinomTest {
     @Example
-    void exampleTest() {
-        assertThat(binomialkoeffizient(12, 6) == 924);
-        assertThat(binomialkoeffizient(4, 3) == 4);
+    boolean exampleTest() {
+        return binomialkoeffizient(12,6) == 924 && binomialkoeffizient(4,3) == 4;
+
 
     }
 
@@ -27,8 +25,8 @@ public class BinomTest {
 
     @Property
     @FromData("preStored")
-    void dataTest(@ForAll int n, @ForAll int k, @ForAll int result) {
-        assertThat(binomialkoeffizient(n,k) == result);
+    boolean dataTest(@ForAll int n, @ForAll int k, @ForAll int result) {
+        return (binomialkoeffizient(n,k)) == (result);
     }
 
     @Property(tries = 1000)
@@ -66,7 +64,6 @@ public class BinomTest {
                   @ForAll @IntRange(min = 1, max = 30) int h){
         if( n-k > h && n-h > k){
             return binomialkoeffizient(n,h) * binomialkoeffizient(n-h,k) == binomialkoeffizient(n,k) * binomialkoeffizient(n-k,h);
-
         }else {
             return true;
         }

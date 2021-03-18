@@ -16,6 +16,8 @@ public class Methods {
   static int bad(int a, int b, int c, int d, int e, int f, int g){
     return 1;
   }
+
+
   static int fact(int n){
       if(n == 0 || n == 1){
           return 1;

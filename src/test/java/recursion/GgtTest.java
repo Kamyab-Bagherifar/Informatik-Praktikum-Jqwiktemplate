@@ -5,30 +5,27 @@ import net.jqwik.api.*;
 import static recursion.Methods.ggT;
 
 import net.jqwik.api.constraints.IntRange;
-import org.assertj.core.api.Assertions;
 
-import static org.assertj.core.api.Assertions.*;
 
 public class GgtTest {
     @Example
-    void exampleTest() {
-        assertThat(ggT(12, 6) == 6);
-        assertThat(ggT(1, 0) == 1);
+    boolean exampleTest() {
+        return ggT(12,6) == 6 && ggT(1,0) == 1;
 
     }
 
     @Data
     Iterable<? extends Tuple.Tuple3<Integer, Integer, Integer>> preStored() {
         return Table.of(
-                Tuple.of(0, 1, 1), Tuple.of(12, 6, 6), Tuple.of(2, 1, 2), Tuple.of(2, 2, 2), Tuple.of(12, 4, 4),
+                Tuple.of(0, 1, 1), Tuple.of(12, 6, 6), Tuple.of(2, 2, 2), Tuple.of(12, 4, 4),
                 Tuple.of(8, 6, 2), Tuple.of(18, 6, 6)
         );
     }
 
     @Property
     @FromData("preStored")
-    void dataTest(@ForAll int a, @ForAll int b, @ForAll int result) {
-        assertThat(ggT(a,b) == result);
+    boolean dataTest(@ForAll int a, @ForAll int b, @ForAll int result) {
+        return (ggT(a,b)) == (result);
     }
 
     @Property(tries = 1000)

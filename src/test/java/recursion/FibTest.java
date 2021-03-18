@@ -12,9 +12,8 @@ import static recursion.Methods.ggT;
 
 public class FibTest {
     @Example
-    void exampleTest() {
-        assertThat(fib(8) == 21);
-        assertThat(fib(1) == 1);
+    boolean exampleTest() {
+        return fib(8) == 21 && fib(1) == 1;
 
     }
 
@@ -34,8 +33,8 @@ public class FibTest {
 
     @Property
     @FromData("preStored")
-    void dataTest(@ForAll int n, @ForAll int result) {
-        assertThat(fib(n) == result);
+    boolean dataTest(@ForAll int n, @ForAll int result) {
+        return (fib(n)) == (result);
     }
 
     @Property(tries = 1000)
@@ -44,7 +43,7 @@ public class FibTest {
     }
 
     @Property(tries = 2000)
-    boolean test2(@ForAll @IntRange(min = 0, max = 20) int n, @ForAll @IntRange(min = 0, max = 20) int m) {
+    boolean test2(@ForAll @IntRange(min = 1, max = 20) int n, @ForAll @IntRange(min = 1, max = 20) int m) {
         if (m > 0 && n > 0) {
             return ggT(fib(m), fib(n)) == fib(ggT(m, n));
         } else {
@@ -54,11 +53,8 @@ public class FibTest {
 
     @Property(tries = 2000)
     boolean test3(@ForAll @IntRange(min = 1, max = 20) int n) {
-        if (n > 0) {
+
             return ggT(fib(n), fib(n + 1)) == 1;
-        } else {
-            return true;
-        }
     }
     @Property(tries = 2000)
     boolean test4(@ForAll @IntRange(min = 1, max = 20) int n) {

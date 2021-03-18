@@ -19,8 +19,8 @@ public class FactTest  {
     }
     @Property
     @FromData("preStored")
-    void dataTest(@ForAll int n,@ForAll int result){
-      assertThat(fact(n) == result);
+    boolean test_2(@ForAll int index, @ForAll int result) {
+        return (fact(index)) == (result);
     }
 }
 
