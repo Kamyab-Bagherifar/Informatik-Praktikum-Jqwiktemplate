@@ -1,13 +1,13 @@
 package recursion;
 import net.jqwik.api.*;
 import static recursion.Methods.fact;
-import org.assertj.core.api.Assertions;
-import static org.assertj.core.api.Assertions.*;
+
+
 public class FactTest  {
   @Example
-  void exampleTest() {
-    assertThat(fact(12) == 479001600);
-    assertThat(fact(0) == 1);
+  boolean exampleTest() {
+      return fact(12) == 479001600 && fact(0) == 1;
+
 
   }
     @Data

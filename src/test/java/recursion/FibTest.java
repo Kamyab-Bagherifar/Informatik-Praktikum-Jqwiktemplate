@@ -5,9 +5,7 @@ import net.jqwik.api.*;
 import static recursion.Methods.fib;
 
 import net.jqwik.api.constraints.IntRange;
-import org.assertj.core.api.Assertions;
 
-import static org.assertj.core.api.Assertions.*;
 import static recursion.Methods.ggT;
 
 public class FibTest {
