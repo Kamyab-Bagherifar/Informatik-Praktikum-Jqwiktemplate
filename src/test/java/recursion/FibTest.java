@@ -56,11 +56,11 @@ public class FibTest {
     }
     @Property(tries = 2000)
     boolean test4(@ForAll @IntRange(min = 1, max = 20) int n) {
-        int summerzeichen = 0;
+        int summenzeichen = 0;
         for (int i = 0; i <= n; i++){
-             summerzeichen = summerzeichen + fib(i);
+             summenzeichen = summenzeichen + fib(i);
         }
-        return summerzeichen == fib(n+2) -1;
+        return summenzeichen == fib(n+2) -1;
 
     }
 

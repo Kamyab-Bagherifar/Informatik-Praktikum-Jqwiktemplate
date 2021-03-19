@@ -57,7 +57,7 @@ public class GgtTest {
                                @ForAll @IntRange(min = 0, max = 10000) int m){
         return ggT(m*a,m*b) == m*ggT(b,a);
     }
-    @Property(tries = 1000)
+    @Property(tries = 2000)
     boolean lastTest(@ForAll @IntRange(min = 0, max = 10000) int a, @ForAll @IntRange(min = 0, max = 10000) int b){
         if(a > b){
             return ggT(a,b) == ggT(a-b,b);

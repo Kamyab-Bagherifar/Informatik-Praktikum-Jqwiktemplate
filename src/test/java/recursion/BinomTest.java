@@ -41,7 +41,7 @@ public class BinomTest {
     boolean test3(@ForAll @IntRange(min = 0, max = 100000) int n){
         return binomialkoeffizient(n,1) == n;
     }
-    @Property(tries = 1000)
+    @Property(tries = 2000)
     boolean test4(@ForAll @IntRange(min = 0, max = 25) int n, @ForAll @IntRange(min = 0, max = 25) int k ){
         if( n >= k){
             return binomialkoeffizient(n,k) == binomialkoeffizient(n, n-k);
