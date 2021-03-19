@@ -2,11 +2,9 @@ package recursion;
 
 import net.jqwik.api.*;
 
-import static recursion.Methods.fib;
-
 import net.jqwik.api.constraints.IntRange;
 
-import static recursion.Methods.ggT;
+import static recursion.Methods.*;
 
 public class FibTest {
     @Example
@@ -54,13 +52,10 @@ public class FibTest {
 
             return ggT(fib(n), fib(n + 1)) == 1;
     }
-    @Property(tries = 2000)
+    @Property(tries = 1000)
     boolean test4(@ForAll @IntRange(min = 1, max = 20) int n) {
-        int summenzeichen = 0;
-        for (int i = 0; i <= n; i++){
-             summenzeichen = summenzeichen + fib(i);
-        }
-        return summenzeichen == fib(n+2) -1;
+
+        return loop(n,0,0) == fib(n+2) -1;
 
     }
 

@@ -47,6 +47,16 @@ public class Methods {
         else return fib(n-1) + fib(n-2);
     }
 
+    static int loop(int n, int i, int res){
+      if(n == i){
+          return res;
+      }else{
+          i++;
+          return loop(n, i, fib(i)+ res);
+      }
+
+    }
+
 
 
 }
