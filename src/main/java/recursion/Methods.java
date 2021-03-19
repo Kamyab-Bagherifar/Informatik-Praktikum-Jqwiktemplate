@@ -30,12 +30,16 @@ public class Methods {
         if(a==b||b==0) return a;
         else return ggT(b,a%b);
     }
+
+
     public static int binomialkoeffizient(int n, int k) {
         if (n == k || k == 0) return 1;
         if (k == 1) return n;
         if (k > n || k < 0) return 0;
         return binomialkoeffizient(n - 1, k) + binomialkoeffizient(n - 1, k - 1);
     }
+
+
 
     static int fib(int n) {
         if (n==0) return 0;
